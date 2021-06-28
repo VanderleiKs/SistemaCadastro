@@ -43,7 +43,10 @@ namespace SistemaCadastro
             this.radioOutro = new System.Windows.Forms.RadioButton();
             this.radioFeminino = new System.Windows.Forms.RadioButton();
             this.radioMasculino = new System.Windows.Forms.RadioButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox = new System.Windows.Forms.ListBox();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,7 +127,7 @@ namespace SistemaCadastro
             // checkCasa
             // 
             this.checkCasa.AutoSize = true;
-            this.checkCasa.Location = new System.Drawing.Point(210, 206);
+            this.checkCasa.Location = new System.Drawing.Point(210, 196);
             this.checkCasa.Name = "checkCasa";
             this.checkCasa.Size = new System.Drawing.Size(127, 19);
             this.checkCasa.TabIndex = 9;
@@ -134,7 +137,7 @@ namespace SistemaCadastro
             // checkVeiculo
             // 
             this.checkVeiculo.AutoSize = true;
-            this.checkVeiculo.Location = new System.Drawing.Point(210, 244);
+            this.checkVeiculo.Location = new System.Drawing.Point(210, 232);
             this.checkVeiculo.Name = "checkVeiculo";
             this.checkVeiculo.Size = new System.Drawing.Size(101, 19);
             this.checkVeiculo.TabIndex = 10;
@@ -146,7 +149,7 @@ namespace SistemaCadastro
             this.groupBox1.Controls.Add(this.radioOutro);
             this.groupBox1.Controls.Add(this.radioFeminino);
             this.groupBox1.Controls.Add(this.radioMasculino);
-            this.groupBox1.Location = new System.Drawing.Point(210, 288);
+            this.groupBox1.Location = new System.Drawing.Point(210, 273);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(429, 62);
             this.groupBox1.TabIndex = 11;
@@ -186,22 +189,61 @@ namespace SistemaCadastro
             this.radioMasculino.Text = "Masculino";
             this.radioMasculino.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // listBox
             // 
-            this.listBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 21;
-            this.listBox1.Location = new System.Drawing.Point(30, 413);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(609, 88);
-            this.listBox1.TabIndex = 12;
+            this.listBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 21;
+            this.listBox.Location = new System.Drawing.Point(30, 422);
+            this.listBox.Name = "listBox";
+            this.listBox.Size = new System.Drawing.Size(609, 88);
+            this.listBox.TabIndex = 12;
+            // 
+            // btnCadastrar
+            // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnCadastrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrar.Location = new System.Drawing.Point(30, 359);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(153, 49);
+            this.btnCadastrar.TabIndex = 13;
+            this.btnCadastrar.Text = "Cadastrar/Editar";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.Red;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(260, 359);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(153, 49);
+            this.btnExcluir.TabIndex = 14;
+            this.btnExcluir.Text = "Exluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnLimpar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLimpar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpar.Location = new System.Drawing.Point(486, 359);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(153, 49);
+            this.btnLimpar.TabIndex = 15;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 506);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(669, 522);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnExcluir);
+            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.listBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkVeiculo);
             this.Controls.Add(this.checkCasa);
@@ -214,7 +256,7 @@ namespace SistemaCadastro
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Cadastro";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -238,7 +280,10 @@ namespace SistemaCadastro
         private System.Windows.Forms.RadioButton radioOutro;
         private System.Windows.Forms.RadioButton radioFeminino;
         private System.Windows.Forms.RadioButton radioMasculino;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btnExcluir;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }
 

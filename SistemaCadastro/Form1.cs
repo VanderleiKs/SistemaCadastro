@@ -32,9 +32,10 @@ namespace SistemaCadastro
             listar();
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e)
+        private void btnCadastrar_Click(Object sender, EventArgs e)
         {
             char sexo;
+            int index = -1;
 
             if (txtNome.Text == "")
             {
@@ -61,8 +62,8 @@ namespace SistemaCadastro
             {
                 sexo = 'O';
             }
-            
-                pessoas.Add(new Pessoa(
+
+            Pessoa pessoa = new Pessoa(
                     txtNome.Text.ToString(),
                     dateNascimento.Value.ToString("d"),
                     comboEstadoCivil.SelectedItem.ToString(),
@@ -70,8 +71,26 @@ namespace SistemaCadastro
                     checkCasa.Checked,
                     checkVeiculo.Checked,
                     sexo
-                ));
-            MessageBox.Show("Item cadastrado com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                );
+
+            foreach (Pessoa p in pessoas)
+            {
+                if(p.Nome == txtNome.Text)
+                {
+                    index = pessoas.IndexOf(p);
+                }
+            }
+            
+            if(index >= 0)
+            {
+                pessoas[index] = pessoa;
+                MessageBox.Show("Item alterado com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                pessoas.Add(pessoa);
+                MessageBox.Show("Item cadastrado com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             btnLimpar_Click(btnLimpar, EventArgs.Empty);
             listar();
         }
@@ -135,9 +154,27 @@ namespace SistemaCadastro
 
         private void listView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //Pessoa pessoa = pessoas.ElementAt(listView.SelectedItems[0].Index);
+            int index = listView.SelectedItems[0].Index;
+            Pessoa pessoa = pessoas.ElementAt(index);
 
-            //txtNome.Text = pessoa.Nome;
+            txtNome.Text = pessoa.Nome;
+            txtTelefone.Text = pessoa.Telefone;
+            comboEstadoCivil.SelectedItem = pessoa.EstadoCivil;
+            checkCasa.Checked = pessoa.CasaPropia;
+            checkVeiculo.Checked = pessoa.Veiculo;
+
+            switch (pessoa.Sexo)
+            {
+                case 'M':
+                    radioM.Checked = true;
+                    break;
+                case 'F':
+                    radioF.Checked = true;
+                    break;
+                default:
+                    radioO.Checked = true;
+                    break;
+            }
         }
     }
 }

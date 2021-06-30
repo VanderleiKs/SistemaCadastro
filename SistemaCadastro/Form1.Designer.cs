@@ -36,18 +36,25 @@ namespace SistemaCadastro
             this.dateNascimento = new System.Windows.Forms.DateTimePicker();
             this.comboEstadoCivil = new System.Windows.Forms.ComboBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
-            this.textNome = new System.Windows.Forms.TextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.checkCasa = new System.Windows.Forms.CheckBox();
             this.checkVeiculo = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioOutro = new System.Windows.Forms.RadioButton();
-            this.radioFeminino = new System.Windows.Forms.RadioButton();
-            this.radioMasculino = new System.Windows.Forms.RadioButton();
-            this.listBox = new System.Windows.Forms.ListBox();
+            this.groupSexo = new System.Windows.Forms.GroupBox();
+            this.radioO = new System.Windows.Forms.RadioButton();
+            this.radioF = new System.Windows.Forms.RadioButton();
+            this.radioM = new System.Windows.Forms.RadioButton();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.listView = new System.Windows.Forms.ListView();
+            this.nome = new System.Windows.Forms.ColumnHeader();
+            this.dataNascimento = new System.Windows.Forms.ColumnHeader();
+            this.estadoCivil = new System.Windows.Forms.ColumnHeader();
+            this.telefone = new System.Windows.Forms.ColumnHeader();
+            this.casaPropria = new System.Windows.Forms.ColumnHeader();
+            this.veidulo = new System.Windows.Forms.ColumnHeader();
+            this.sexo = new System.Windows.Forms.ColumnHeader();
+            this.groupSexo.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -95,7 +102,7 @@ namespace SistemaCadastro
             this.dateNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateNascimento.Location = new System.Drawing.Point(210, 65);
             this.dateNascimento.Name = "dateNascimento";
-            this.dateNascimento.Size = new System.Drawing.Size(429, 29);
+            this.dateNascimento.Size = new System.Drawing.Size(513, 29);
             this.dateNascimento.TabIndex = 4;
             // 
             // comboEstadoCivil
@@ -116,13 +123,13 @@ namespace SistemaCadastro
             this.txtTelefone.Size = new System.Drawing.Size(307, 29);
             this.txtTelefone.TabIndex = 6;
             // 
-            // textNome
+            // txtNome
             // 
-            this.textNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textNome.Location = new System.Drawing.Point(210, 27);
-            this.textNome.Name = "textNome";
-            this.textNome.Size = new System.Drawing.Size(429, 29);
-            this.textNome.TabIndex = 8;
+            this.txtNome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtNome.Location = new System.Drawing.Point(210, 27);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(513, 29);
+            this.txtNome.TabIndex = 8;
             // 
             // checkCasa
             // 
@@ -144,110 +151,160 @@ namespace SistemaCadastro
             this.checkVeiculo.Text = "Possui veículo";
             this.checkVeiculo.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // groupSexo
             // 
-            this.groupBox1.Controls.Add(this.radioOutro);
-            this.groupBox1.Controls.Add(this.radioFeminino);
-            this.groupBox1.Controls.Add(this.radioMasculino);
-            this.groupBox1.Location = new System.Drawing.Point(210, 273);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(429, 62);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Sexo";
+            this.groupSexo.Controls.Add(this.radioO);
+            this.groupSexo.Controls.Add(this.radioF);
+            this.groupSexo.Controls.Add(this.radioM);
+            this.groupSexo.Location = new System.Drawing.Point(210, 273);
+            this.groupSexo.Name = "groupSexo";
+            this.groupSexo.Size = new System.Drawing.Size(429, 62);
+            this.groupSexo.TabIndex = 11;
+            this.groupSexo.TabStop = false;
+            this.groupSexo.Text = "Sexo";
             // 
-            // radioOutro
+            // radioO
             // 
-            this.radioOutro.AutoSize = true;
-            this.radioOutro.Location = new System.Drawing.Point(230, 22);
-            this.radioOutro.Name = "radioOutro";
-            this.radioOutro.Size = new System.Drawing.Size(56, 19);
-            this.radioOutro.TabIndex = 2;
-            this.radioOutro.TabStop = true;
-            this.radioOutro.Text = "Outro";
-            this.radioOutro.UseVisualStyleBackColor = true;
+            this.radioO.AutoSize = true;
+            this.radioO.Location = new System.Drawing.Point(230, 22);
+            this.radioO.Name = "radioO";
+            this.radioO.Size = new System.Drawing.Size(56, 19);
+            this.radioO.TabIndex = 2;
+            this.radioO.TabStop = true;
+            this.radioO.Text = "Outro";
+            this.radioO.UseVisualStyleBackColor = true;
             // 
-            // radioFeminino
+            // radioF
             // 
-            this.radioFeminino.AutoSize = true;
-            this.radioFeminino.Location = new System.Drawing.Point(128, 22);
-            this.radioFeminino.Name = "radioFeminino";
-            this.radioFeminino.Size = new System.Drawing.Size(75, 19);
-            this.radioFeminino.TabIndex = 1;
-            this.radioFeminino.TabStop = true;
-            this.radioFeminino.Text = "Feminino";
-            this.radioFeminino.UseVisualStyleBackColor = true;
+            this.radioF.AutoSize = true;
+            this.radioF.Location = new System.Drawing.Point(128, 22);
+            this.radioF.Name = "radioF";
+            this.radioF.Size = new System.Drawing.Size(75, 19);
+            this.radioF.TabIndex = 1;
+            this.radioF.TabStop = true;
+            this.radioF.Text = "Feminino";
+            this.radioF.UseVisualStyleBackColor = true;
             // 
-            // radioMasculino
+            // radioM
             // 
-            this.radioMasculino.AutoSize = true;
-            this.radioMasculino.Location = new System.Drawing.Point(21, 22);
-            this.radioMasculino.Name = "radioMasculino";
-            this.radioMasculino.Size = new System.Drawing.Size(80, 19);
-            this.radioMasculino.TabIndex = 0;
-            this.radioMasculino.TabStop = true;
-            this.radioMasculino.Text = "Masculino";
-            this.radioMasculino.UseVisualStyleBackColor = true;
-            // 
-            // listBox
-            // 
-            this.listBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 21;
-            this.listBox.Location = new System.Drawing.Point(30, 422);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(609, 88);
-            this.listBox.TabIndex = 12;
+            this.radioM.AutoSize = true;
+            this.radioM.Location = new System.Drawing.Point(21, 22);
+            this.radioM.Name = "radioM";
+            this.radioM.Size = new System.Drawing.Size(80, 19);
+            this.radioM.TabIndex = 0;
+            this.radioM.TabStop = true;
+            this.radioM.Text = "Masculino";
+            this.radioM.UseVisualStyleBackColor = true;
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnCadastrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(30, 359);
+            this.btnCadastrar.Location = new System.Drawing.Point(30, 341);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(153, 49);
             this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "Cadastrar/Editar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.Red;
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(260, 359);
+            this.btnExcluir.Location = new System.Drawing.Point(300, 341);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(153, 49);
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Exluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnLimpar
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.Goldenrod;
             this.btnLimpar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLimpar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpar.Location = new System.Drawing.Point(486, 359);
+            this.btnLimpar.Location = new System.Drawing.Point(570, 341);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(153, 49);
             this.btnLimpar.TabIndex = 15;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // listView
+            // 
+            this.listView.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.nome,
+            this.dataNascimento,
+            this.estadoCivil,
+            this.telefone,
+            this.casaPropria,
+            this.veidulo,
+            this.sexo});
+            this.listView.FullRowSelect = true;
+            this.listView.GridLines = true;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(30, 396);
+            this.listView.MultiSelect = false;
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(693, 114);
+            this.listView.TabIndex = 16;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // nome
+            // 
+            this.nome.Text = "Nome";
+            this.nome.Width = 150;
+            // 
+            // dataNascimento
+            // 
+            this.dataNascimento.Text = "Data Nascimento";
+            this.dataNascimento.Width = 120;
+            // 
+            // estadoCivil
+            // 
+            this.estadoCivil.Text = "Estado Civil";
+            this.estadoCivil.Width = 100;
+            // 
+            // telefone
+            // 
+            this.telefone.Text = "Telefone";
+            this.telefone.Width = 100;
+            // 
+            // casaPropria
+            // 
+            this.casaPropria.Text = "Casa Própria";
+            this.casaPropria.Width = 80;
+            // 
+            // veidulo
+            // 
+            this.veidulo.Text = "Veículo";
+            this.veidulo.Width = 80;
+            // 
+            // sexo
+            // 
+            this.sexo.Text = "Sexo";
+            this.sexo.Width = 50;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(669, 522);
+            this.ClientSize = new System.Drawing.Size(754, 522);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCadastrar);
-            this.Controls.Add(this.listBox);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupSexo);
             this.Controls.Add(this.checkVeiculo);
             this.Controls.Add(this.checkCasa);
-            this.Controls.Add(this.textNome);
+            this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtTelefone);
             this.Controls.Add(this.comboEstadoCivil);
             this.Controls.Add(this.dateNascimento);
@@ -257,8 +314,9 @@ namespace SistemaCadastro
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Cadastro";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupSexo.ResumeLayout(false);
+            this.groupSexo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,17 +331,24 @@ namespace SistemaCadastro
         private System.Windows.Forms.DateTimePicker dateNascimento;
         private System.Windows.Forms.ComboBox comboEstadoCivil;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
-        private System.Windows.Forms.TextBox textNome;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.CheckBox checkCasa;
         private System.Windows.Forms.CheckBox checkVeiculo;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioOutro;
-        private System.Windows.Forms.RadioButton radioFeminino;
-        private System.Windows.Forms.RadioButton radioMasculino;
-        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.GroupBox groupSexo;
+        private System.Windows.Forms.RadioButton radioO;
+        private System.Windows.Forms.RadioButton radioF;
+        private System.Windows.Forms.RadioButton radioM;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.ListView listView;
+        private System.Windows.Forms.ColumnHeader nome;
+        private System.Windows.Forms.ColumnHeader dataNascimento;
+        private System.Windows.Forms.ColumnHeader estadoCivil;
+        private System.Windows.Forms.ColumnHeader telefone;
+        private System.Windows.Forms.ColumnHeader casaPropria;
+        private System.Windows.Forms.ColumnHeader veidulo;
+        private System.Windows.Forms.ColumnHeader sexo;
     }
 }
 

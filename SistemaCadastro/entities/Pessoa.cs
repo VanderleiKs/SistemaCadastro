@@ -8,6 +8,17 @@ namespace SistemaCadastro.entities
 {
     class Pessoa
     {
+        public Pessoa(string nome, string dataNascimento, string estadoCivil, string telefone, bool casaPropia, bool veiculo, char sexo)
+        {
+            Nome = nome;
+            DataNascimento = dataNascimento;
+            EstadoCivil = estadoCivil;
+            Telefone = telefone;
+            CasaPropia = casaPropia;
+            Veiculo = veiculo;
+            Sexo = sexo;
+        }
+
         public string Nome { get; set; }
         public string DataNascimento { get; set; }
         public string EstadoCivil { get; set; }

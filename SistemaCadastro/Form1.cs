@@ -99,8 +99,12 @@ namespace SistemaCadastro
         {
             try
             {
-                pessoas.RemoveAt(listView.SelectedItems[0].Index);
-                MessageBox.Show("Item exluido com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult dialog = MessageBox.Show("Deseja exluir o item selicionado?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    pessoas.RemoveAt(listView.SelectedItems[0].Index);
+                    MessageBox.Show("Item exluido com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch
             {

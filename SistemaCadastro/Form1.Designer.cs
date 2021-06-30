@@ -99,6 +99,7 @@ namespace SistemaCadastro
             // 
             // dateNascimento
             // 
+            this.dateNascimento.CustomFormat = "";
             this.dateNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateNascimento.Location = new System.Drawing.Point(210, 65);
             this.dateNascimento.Name = "dateNascimento";
@@ -237,6 +238,7 @@ namespace SistemaCadastro
             // 
             // listView
             // 
+            this.listView.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.nome,
@@ -249,6 +251,7 @@ namespace SistemaCadastro
             this.listView.FullRowSelect = true;
             this.listView.GridLines = true;
             this.listView.HideSelection = false;
+            this.listView.HoverSelection = true;
             this.listView.Location = new System.Drawing.Point(30, 396);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
@@ -256,26 +259,27 @@ namespace SistemaCadastro
             this.listView.TabIndex = 16;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            this.listView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView_MouseDoubleClick);
             // 
             // nome
             // 
             this.nome.Text = "Nome";
-            this.nome.Width = 150;
+            this.nome.Width = 155;
             // 
             // dataNascimento
             // 
             this.dataNascimento.Text = "Data Nascimento";
-            this.dataNascimento.Width = 120;
+            this.dataNascimento.Width = 121;
             // 
             // estadoCivil
             // 
             this.estadoCivil.Text = "Estado Civil";
-            this.estadoCivil.Width = 100;
+            this.estadoCivil.Width = 101;
             // 
             // telefone
             // 
             this.telefone.Text = "Telefone";
-            this.telefone.Width = 100;
+            this.telefone.Width = 101;
             // 
             // casaPropria
             // 
@@ -290,7 +294,7 @@ namespace SistemaCadastro
             // sexo
             // 
             this.sexo.Text = "Sexo";
-            this.sexo.Width = 50;
+            this.sexo.Width = 51;
             // 
             // Form1
             // 

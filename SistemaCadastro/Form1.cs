@@ -20,10 +20,9 @@ namespace SistemaCadastro
 
             pessoas = new List<Pessoa>();
 
-            comboEstadoCivil.Items.Add("Selecione...");
+            comboEstadoCivil.Items.Add("Solteiro");
             comboEstadoCivil.Items.Add("Casado");
             comboEstadoCivil.Items.Add("Divorciado");
-            comboEstadoCivil.Items.Add("Solteiro");
             comboEstadoCivil.Items.Add("Viúvo");
             comboEstadoCivil.SelectedIndex = 0;
         }
@@ -39,13 +38,13 @@ namespace SistemaCadastro
 
             if (txtNome.Text == "")
             {
-                MessageBox.Show("Digite Um Nome Válido!");
+                MessageBox.Show("Digite Um Nome Válido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNome.Focus();
                 return;
             }
             if (txtTelefone.Text == "(  )      -")
             {
-                MessageBox.Show("Digite um número de telefone válido!");
+               MessageBox.Show("Digite um número de telefone válido!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTelefone.Focus();
                 return;
             }
@@ -72,7 +71,8 @@ namespace SistemaCadastro
                     checkVeiculo.Checked,
                     sexo
                 ));
-            
+            MessageBox.Show("Item cadastrado com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnLimpar_Click(btnLimpar, EventArgs.Empty);
             listar();
         }
 
@@ -81,10 +81,11 @@ namespace SistemaCadastro
             try
             {
                 pessoas.RemoveAt(listView.SelectedItems[0].Index);
+                MessageBox.Show("Item exluido com sucesso!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
-                MessageBox.Show("Selecione um item para excluir!");
+                MessageBox.Show("Selecione um item para excluir!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             
@@ -94,7 +95,14 @@ namespace SistemaCadastro
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-
+            txtNome.Text = "";
+            txtTelefone.Text = "";
+            comboEstadoCivil.SelectedIndex = 0;
+            checkCasa.Checked = false;
+            checkVeiculo.Checked = false;
+            radioM.Checked = false;
+            radioF.Checked = false;
+            radioO.Checked = false;
         }
 
         private void listar()
@@ -124,19 +132,12 @@ namespace SistemaCadastro
             }
         }
 
-        private void table_Paint(object sender, PaintEventArgs e)
+
+        private void listView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-           
-        }
+            //Pessoa pessoa = pessoas.ElementAt(listView.SelectedItems[0].Index);
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
+            //txtNome.Text = pessoa.Nome;
         }
     }
 }
